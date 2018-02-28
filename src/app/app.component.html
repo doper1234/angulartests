@@ -1,0 +1,44 @@
+<h1>{{title}}</h1>
+
+<div *ngFor="let product of currentProducts">
+  {{product.ProductName}}
+</div>
+
+
+<mat-paginator [length]="length"
+              [pageSize]="pageSize"
+              [pageSizeOptions]="pageSizeOptions"
+              (page)="pageEvent = onPageEvent($event)">
+</mat-paginator>
+
+<div *ngIf="pageEvent">
+  <h5>Page Change Event Properties</h5>
+  <div>List length: {{pageEvent.length}}</div>
+  <div>Page size: {{pageEvent.pageSize}}</div>
+  <div>Page index: {{pageEvent.pageIndex}}</div>
+</div>
+
+
+<!-- Copyright 2018 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->
+
+<!-- <button kendoButton (click)="onButtonClick()" [primary]="true">My Kendo UI Button</button>
+
+<kendo-grid [data]="gridData" [height]="410">
+            <kendo-grid-column field="ProductID" title="ID" width="40">
+            </kendo-grid-column>
+            <kendo-grid-column field="ProductName" title="Name" width="250">
+            </kendo-grid-column>
+            <kendo-grid-column field="Category.CategoryName" title="Category">
+            </kendo-grid-column>
+            <kendo-grid-column field="UnitPrice" title="Price" width="80">
+            </kendo-grid-column>
+            <kendo-grid-column field="UnitsInStock" title="In stock" width="80">
+            </kendo-grid-column>
+            <kendo-grid-column field="Discontinued" title="Discontinued" width="120">
+                <ng-template kendoGridCellTemplate let-dataItem>
+                    <input type="checkbox" [checked]="dataItem.Discontinued" disabled/>
+                </ng-template>
+            </kendo-grid-column>
+        </kendo-grid> -->
